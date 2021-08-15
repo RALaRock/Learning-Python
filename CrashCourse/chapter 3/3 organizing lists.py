@@ -29,3 +29,12 @@ print(cars)
 print()
 
 # finding the length of a list
+test_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+# use len() funciton
+print(len(test_list))
+# using for loop
+count = 0
+for i in test_list:
+    count += 1
+
+print(count)

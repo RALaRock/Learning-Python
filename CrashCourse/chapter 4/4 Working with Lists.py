@@ -79,7 +79,8 @@ print([x if "a" not in x else "yech" for x in fruits])
 # syntax: listname[start item number, last item to get]
 values = list(range(10))
 print(values)
-aslice = values[3:6]  # [start item, number of items to get]
+values.reverse()
+aslice = values[3:6]  # [start index, number of items to get]
 print(aslice)
 print()
 

@@ -8,6 +8,19 @@ def strip_all_spaces(string):
 
 # end def
 
+
+#  remove all occurences of an item from a list
+def remove_items(test_list, item):
+
+    # using list comprehension to perform the task
+    res = [i for i in test_list if i != item]
+
+    return res
+
+
+# end def
+
+
 # replace an item in a list with another item
 # needs error checking for empty list and olditem not existing
 # EX: print(list_replace(guests, noshow, replacement))

@@ -1,5 +1,5 @@
 # dictionary is a composite data type like a list
-# both are mutable, itemso can be changed
+# both are mutable, items can be changed
 # both are dynamic, can change size
 # both can be nested, both can contain other lists or dictionaries
 # lists and dictionary differ

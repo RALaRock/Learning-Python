@@ -41,7 +41,10 @@ print("\n")
 # using split() and join()
 # use split() to convert the string into a list
 # use join to combine the list into a string with spaces
+# this also removes extra white spaces from start, end and middle
+test_string = " this is a test string    with extra whitespace  "
 print(test_string)
+print(test_string.split())
 res = " ".join(test_string.split())
 print(res)
 print("\n")

@@ -1,4 +1,4 @@
-# it's common to build lists by appending itmes as 
+# it's common to build lists by appending items as 
 # users provide them
 # initialize an empty list
 motorcycles = []
@@ -55,3 +55,13 @@ print(motorcycles)
 motorcycles.remove('yamaha')
 print(motorcycles)
 
+# remove all occurences of an item from a list
+def remove_items(test_list, item):
+      
+    # using list comprehension to perform the task
+    res = [i for i in test_list if i != item]
+  
+    return res
+
+test_list = [1,1,2,3,4,3,5,6,7,1,4,5]
+print(remove_items(test_list, 1))
