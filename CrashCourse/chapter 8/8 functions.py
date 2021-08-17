@@ -78,3 +78,41 @@ print(f"printed: {printed}")
 print_models(unprinted, printed)
 print(f"unprinted: {unprinted}")
 print(f"printed: {printed}")
+
+# passing by value
+# use the [:] slice operator on the list to create a copy
+unprinted = ["phone", "robot", "dice"]
+printed = []
+print(f"unprinted: {unprinted}")
+print(f"printed: {printed}")
+print_models(unprinted[:], printed)
+print(f"unprinted: {unprinted}")
+print(f"printed: {printed}")
+
+# passing an arbitrary number of arguments
+# the * causes the arguments to be converted into a tuple
+# tuples are ordered and unchangeable
+# expect to see *args to indicate arbitrary number of arguments
+def pizza(*toppings):
+    print(toppings)
+
+
+pizza("sauce")
+pizza("cheese", "mushrooms", "pepperoni")
+print()
+
+# passing arbitrary number of arguments of unknown type
+# using a ** causes the arguments to be converetd into a dictionary
+# use this when need different argument data types like string and integer
+# expect to see **kwargs to indicate arbitrary number of keyword arguments
+def build_user(first, last, **user_info):
+    """**user_data is and arbitrary dictionary of key value pairs"""
+    user_info["first_name"] = first
+    user_info["last_name"] = last
+    return user_info
+
+
+print(build_user("rocky", "raccoon", location="forest", type="rodent"))
+print()
+print(build_user("rocky", "raccoon", location="forest", type="rodent", age=100))
+print()
