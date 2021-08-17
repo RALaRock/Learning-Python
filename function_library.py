@@ -1,5 +1,18 @@
 # some useful functions
 
+# format and return a full name
+def full_name(first, last, middle=""):
+    """return a properly formatted full name"""
+    if first and middle and last:
+        fullname = f"{first} {middle} {last}"
+    elif first and last:
+        fullname = f"{first} {last}"
+    else:
+        fullname = ""
+
+    return fullname.title()
+
+
 # function strips leading, training and extra spaces in a string
 # returns the space stripped string
 def strip_all_spaces(string):

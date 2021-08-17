@@ -116,7 +116,7 @@ print(mlb_teams)
 # they are accessed by key value by specifying they key in square brackets
 print(mlb_teams["Los Angeles"])
 
-# to add an entry to a dictionary specify a new key valye pair
+# to add an entry to a dictionary specify a new key value pair
 mlb_teams["Kansas City"] = "Royals"
 print(mlb_teams)
 
@@ -212,10 +212,11 @@ print()
 for value in set(favorite_languages.values()):
     print(value)
 
-# sets are similar to dictionaries except sets don't have keys
-# sets look similar to dictionaries
+# sets are like a list of dictionary keys in that they don't allow duplicates
+# except sets don't have key value pairs
+# sets look similar to dictionaries, they use curly braces
 print()
-fruits = {"banana", "apple", "banana", "orange"}
+fruits = {"banana", "apple", "banana", "orange", "apple"}
 print(fruits)  # duplicates removed
 
 # nesting

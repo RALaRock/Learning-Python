@@ -1,5 +1,5 @@
 # dictionary is a composite data type like a list
-# both are mutable, itemso can be changed
+# both are mutable, items can be changed
 # both are dynamic, can change size
 # both can be nested, both can contain other lists or dictionaries
 # lists and dictionary differ
@@ -7,6 +7,7 @@
 # dictionary elements are accessed by their keys
 # a dictionary is also called an associative array
 # it is a collection of key-value pairs
+# dictionary keys must be unique with no repeats
 
 # defining a dictionary, enclose comma separated list in curly braces
 # a semi colon separates each key value pair
@@ -68,7 +69,7 @@ print(f"The total number of aliens is {len(aliens)}.")
 
 # lists in a dictionary
 
-# useful when one or more of the elements of the list need to store
+# useful when one or more of the elements of the dictionary need to store
 # multiple items
 print()
 # pizza is a dictionary in which the second element is a list of toppings

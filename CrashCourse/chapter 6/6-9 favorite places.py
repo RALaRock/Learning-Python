@@ -3,6 +3,7 @@
 # for each person store up to three places
 # print every person's places
 
+# dictionary containing lists of places for each person
 favorite_places = {
     "bill": ["machu pichu", "new york", "mount Everest"],
     "sam": ["london", "", "los angeles"],
