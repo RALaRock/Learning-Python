@@ -116,3 +116,42 @@ print(build_user("rocky", "raccoon", location="forest", type="rodent"))
 print()
 print(build_user("rocky", "raccoon", location="forest", type="rodent", age=100))
 print()
+
+
+# storing functions in modules
+# store functions in separate files called modules
+# a module is a file containing functions with a .py extension
+
+# import an entire module
+# import every function in the module, pizza.py
+import pizza
+
+# to use the module function preface with the name of the module
+# followed by a period followed by the function name
+# modulename.functionname(parameters)
+pizza.make_pizza(16, "pepperoni")
+pizza.make_pizza(16, "pepperoni", "peppers", "extra sauce", "beef", "boogers")
+
+# import specific functions rather than the whole module
+# use from modulename import functioname, functionname, functionname, ...
+# importing specific functions, don't need to specifiy the module with dot
+
+# using AS to give a function an alias
+# useful when the name of a function might conflict with another name
+# of if the function name is long and you want to shorten it
+# from modulename import functionname as alias
+
+# using AS to give a module an alias
+# import modulename as alias
+
+# import all functions in a module
+# use the * modifier
+# from modulename import *
+# imports all the functions making it possible to not use modulename.functionname
+# notation
+# risky with 3rd party modules since might end up with naming conflicts
+# best to import just the desire functions or use the dot notation
+
+# styling functions and modules
+# use descriptive names with lower case letters and underscores between words
+# include a comment that describes the module and/or function purpose
