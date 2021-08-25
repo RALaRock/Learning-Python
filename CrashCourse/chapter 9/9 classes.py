@@ -43,13 +43,17 @@ print()
 # create a Car class
 class Car:
     def __init__(self, make, model, year):
+        # these parameters are passed when class instantiated
         self.make = make
         self.model = model
         self.year = year
 
+        # these parameters are not passed, have default values,
+        # can be manipulated as part of the class
         self.odometer_reading = 0
         self.gas_tank_level = 0
 
+    # these are methods within the class
     def get_descriptive_name(self):
         long_name = f"{self.year} {self.make} {self.model}"
         return long_name.title()
@@ -57,12 +61,40 @@ class Car:
     def read_odometer(self):
         print(f"This car has {self.odometer_reading} miles on it.")
 
+    def update_odometer(self, miles):
+        """
+        Set the odometer to a given value.
+        Reject a change that rolls back the miles.
+        """
+        if miles >= self.odometer_reading:
+            self.odometer_reading = miles
+        else:
+            print("You can't roll back the mileage.")
+
+    # this method has  required parameter, miles
     def increment_odometer(self, miles):
         self.odometer_reading += miles
 
+    # this method has a required parameter, added_gas
     def fill_gas_tank(self, added_gas):
         self.gas_tank_level = added_gas
         print(f"The gas tank has {added_gas} gallons in it.")
+
+
+my_newcar = Car("Ford", "Mustang", "2021")
+print(my_newcar.get_descriptive_name())
+
+# modifying attribute values
+# three ways to change directly through an instance of the class
+#   change the value directly through an instance of the class
+my_newcar.gas_tank_level = 5
+print(my_newcar.gas_tank_level)
+#   set the value through a method
+my_newcar.fill_gas_tank(10)
+#   increment the value through a method
+my_newcar.increment_odometer(10)
+my_newcar.read_odometer()
+print()
 
 
 # if a class is used in another class, the used class must be before
@@ -70,9 +102,13 @@ class Car:
 
 
 class Battery:
-    """Creating a sub class for a part of a battery powered car"""
+    """
+    Creating a sub class for a part of a battery powered car.
+    Parent class: Car()
+    """
 
-    # using a variable parameter battery_size
+    # using a optional parameter battery_size
+    # can instantiate with or without batter_size
     def __init__(self, battery_size=75):
         # initialize battery attributes
         self.battery_size = battery_size
@@ -93,19 +129,25 @@ class Battery:
         if range:
             print(f"This car can go about {range} miles on a full charge.")
         else:
-            print(
-                f"Unknown battery size ({self.battery_size}) specified. Range unknown."
-            )
+            print(f"Unknown range for battery size: ({self.battery_size}).")
 
     def set_battery_size(self, battery_size):
         self.battery_size = battery_size
 
 
+# the parent class definition must part of the current file and
+# before the child class in the file
+
 # create a subclass of Car
+# when a subclass created, the parent class is specified
+# in the class name class ClassName(ParentClassName)
 class ElectricCar(Car):
+
+    # the init method of the child class takes in info needed to
+    # create a parent class instance
     def __init__(self, make, model, year):
         """Initialiize the attributes from the parent class"""
-        """super() is a function that runs a function in a parent class"""
+        """super() is a function that runs a method in a parent class"""
         super().__init__(make, model, year)
 
         # replace battery methods with those from the Battery class
