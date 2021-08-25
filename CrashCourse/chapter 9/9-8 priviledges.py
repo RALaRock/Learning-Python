@@ -1,12 +1,9 @@
-# 9-7. Admin:
-# An administrator is a special kind of user. Write a class
-# called Admin that inherits from the User class you wrote
-# in Exercise 9-3 (page 162) or Exercise 9-5 (page 167). Add
-# an attribute, privileges, that stores a list of strings like
-# "can add post", "can delete post", "can ban user", and so
-# on. Write a method called show_privileges() that lists the
-# administrator’s set of privileges. Create an instance of Admin,
-# and call your method.
+# 9-8. Privileges:
+# Write a separate Privileges class. The class should have one attribute,
+# privileges, that stores a list of strings as described in Exercise 9-7.
+# Move the show_privileges() method to this class. Make a Privileges
+# instance as an attribute in the Admin class. Create a new instance of
+# Admin and use your method to show its privileges.
 
 
 class User:
@@ -51,16 +48,10 @@ class User:
         self.login_attempts = 0
 
 
-class Admin(User):
-    """
-    Describe admin type of user.
-    """
+class Priviledges:
+    def __init__(self) -> None:
 
-    def __init__(self, first_name, last_name):
-        # this instantiates the user class
-        super().__init__(first_name, last_name)
-
-        # added attribute for admin users
+        # priviledges attribute
         self.priviledges = [
             "add post",
             "delete post",
@@ -70,14 +61,27 @@ class Admin(User):
         ]
 
     def show_priviledges(self):
-        print(f"{self.username} has the following priviledges:")
+        # print(f"{self.username} has the following priviledges:")
         if self.priviledges:
+            print("This account has the following priviledges:")
             for priviledge in self.priviledges:
-                print(priviledge)
+                print(f"\t{priviledge}")
         else:
             print("No priviledges have been granted this user.")
 
 
+class Admin(User):
+    """
+    Describe admin type of user.
+    """
+
+    def __init__(self, first_name, last_name):
+        # this instantiates the user class
+        super().__init__(first_name, last_name)
+
+        self.priviledges = Priviledges()
+
+
 this_admin = Admin("Jackson", "Browne")
 this_admin.describe_user()
-this_admin.show_priviledges()
+this_admin.priviledges.show_priviledges()

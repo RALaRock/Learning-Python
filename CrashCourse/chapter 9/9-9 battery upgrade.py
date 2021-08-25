@@ -1,48 +1,14 @@
-# creating and using classes
-# dog class
-# properties: age, name
-# methods: sit, roll over
-class Dog:
-    """A simple attempt to model a dog"""
-
-    def __init__(self, name, age):
-        """Initialize name and age attributes"""
-        self.name = name
-        self.age = age
-
-    def sit(self):
-        """Simulate a dog sitting in response to command"""
-        print(f"{self.name} is now sitting.")
-
-    def roll_over(self):
-        """Simulate a dog rolling over in response to command"""
-        print(f"{self.name} rolled over.")
+# 9-9. Battery Upgrade:
+# Use the final version of electric_car.py from this section.
+# Add a method to the Battery class called upgrade_battery().
+# This method should check the battery size and set the capacity
+# to 100 if it isn’t already. Make an electric car with a default
+# battery size, call get_range() once, and then call get_range() a
+# second time after upgrading the battery. You should see an
+# increase in the car’s range.
 
 
-# a function that is part of a class is a method
-# the __init__() method runs when new instance of class is created
-# the self parameter of the __init__() method is required, must be  the
-# first parameter, is a reference to the instance of the class. The self
-# parameter is passed to all methods in the class when they are called..
-# when an instance of a class is created self is passed automatically.
-# Only specify the other parameters.
-# Any variable prefaced with 'self.' is available to every module in the
-# class
-
-# instantiating a class
-my_dog = Dog("Willie", 6)
-print(f"My dog's name is {my_dog.name}.")
-print(f"My dog is {my_dog.age} years old.")
-my_dog.roll_over()
-my_dog.sit()
-print()
-print()
-
-
-# inhertitance
-# create a Car class
 class Car:
-
     def __init__(self, make, model, year):
         # these parameters are passed when class instantiated
         self.make = make
@@ -82,26 +48,7 @@ class Car:
         print(f"The gas tank has {added_gas} gallons in it.")
 
 
-my_newcar = Car("Ford", "Mustang", "2021")
-print(my_newcar.get_descriptive_name())
-
-# modifying attribute values
-# three ways to change directly through an instance of the class
-#   change the value directly through an instance of the class
-my_newcar.gas_tank_level = 5
-print(f"There are {my_newcar.gas_tank_level} gallons in the tank.")
-#   set the value through a method
-my_newcar.fill_gas_tank(10)
-#   increment the value through a method
-my_newcar.increment_odometer(10)
-my_newcar.read_odometer()
-print()
-
-
-# if a class is used in another class, the used class must be before
-# the using class in the code stream
-
-
+# create an attribute class for Battery
 class Battery:
     """
     Creating a sub class for a part of a battery powered car.
@@ -136,13 +83,16 @@ class Battery:
     def set_battery_size(self, battery_size):
         self.battery_size = battery_size
 
+    def upgrade_battery(self):
+        """
+        Check battery size and set the capacity to 100 if
+        it is not already 100.
+        """
+        if self.battery_size != 100:
+            self.battery_size = 100
 
-# the parent class definition must part of the current file and
-# before the child class in the file
 
-# create a subclass of Car
-# when a subclass created, the parent class is specified
-# in the class name class ClassName(ParentClassName)
+# create a subclass of Car for electric cars
 class ElectricCar(Car):
 
     # the init method of the child class takes in info needed to
@@ -152,23 +102,9 @@ class ElectricCar(Car):
         """super() is a function that runs a method in a parent class"""
         super().__init__(make, model, year)
 
-        # use a Battery() class instance as an attribute
-        # replace battery methods with those from the Battery class
-        # create an instance of the Battery class with a default battery size
-        # of 75 since a value for battery size is not passed here
         self.battery = Battery()
-        # attributes in the child class
-        # self.battery_size = 75
 
-    # replace battery methods with those from the Battery class
-    # moved to Battery class
-    # def describe_battery(self):
-    #   """Print a statement describing the battery."""
-    #   print(f"This car has a {self.battery_size}-kwh battery.")
-
-    # this overrides the method in the Car parent class
-    # left the added_gas parameter so that call does not fail if
-    # the argument is provided as it is in the Car class
+    # override the fill_gas_tank method in the car class
     def fill_gas_tank(self, added_gas):
         print("Electric cars do not need gas.")
 
@@ -192,8 +128,11 @@ my_tesla.battery.describe_battery()
 my_tesla.fill_gas_tank(16)
 print(f"Gas tank level: {my_tesla.gas_tank_level}")
 
+# show range for default battery size
 my_tesla.battery.get_range()
-my_tesla.battery.set_battery_size(100)
+# upgrade battery and show range
+my_tesla.battery.upgrade_battery()
 my_tesla.battery.get_range()
-my_tesla.battery.set_battery_size(110)
+# set new battery size and show range, if possible
+my_tesla.battery.set_battery_size(80)
 my_tesla.battery.get_range()
