@@ -1,0 +1,3 @@
+I love programming.
+A second line of text to add to the file.
+Appending a third line.

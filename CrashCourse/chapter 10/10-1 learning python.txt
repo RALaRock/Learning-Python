@@ -1,0 +1,3 @@
+In Python I can use for loops to iterate through lists.
+In Python I can read huge files into lists in memory and manipulate them.
+In Python I can make many, many mistakes. Repeatedly. Sigh.
