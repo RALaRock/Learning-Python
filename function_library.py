@@ -92,3 +92,17 @@ def str_is_number(val):
 
 
 # end def
+
+
+def get_input(prompt, default=None):
+    """get user input with an optional default response"""
+    if default:
+        prompt = prompt + f" [{default}]: "
+    answer = input(prompt)
+    if answer:
+        return answer
+    else:
+        return None
+
+
+# end def
