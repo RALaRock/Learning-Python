@@ -3,32 +3,38 @@
 # a unit test verifies one specific aspect of a function behavior is correct
 # a test case is a collection of unit tests
 # a test case with full coverage includes full range of unit tests covering
-# all the [pssob;e ways to use the function
+# all the possible ways to use the function
 
-# a passing test
+# testing functions
+
+# to write a test case:
 # import the unittest module
-import unittest
+# import the function you want to test
+# create a class that inherits from unittest.TestCase
+# write a series of methods to test the functions behavior
 
-# import the function to test
-from name_function import get_formatted_name
+# see example at:
+#       name_function.py          - module contains get_formatted_name()
+#       test_name_function.py  - module for testing get_formatted_name()
+#       names.py                       - program that uses get_formatted_name()
 
-#  instantiate a unit test class for the function that inherits from unittest
-class NamesTestCase(unittest.TestCase):
-    """Tests for 'name_function.py'"""
+# testing classes
 
-    # test unit method names start with test_
-    # any method whose name starts with test_ will automatically run
-    # when the associated function is run
+# assert methods in the unittest.TestCase class
 
-    # create a unit test , a method that verifys one aspect of the function
-    def test_first_last_name(self):
-        """Do names like 'Bill Blast' work?"""
-        # run the function in question
-        formatted_name = get_formatted_name("Bill", "Blast")
-        # test the result against the expected result
-        self.assertEqual(formatted_name, "Bill Blast")
+"""
+Assert Methods Available from the unittest Module 
+Method                         Use 
+assertEqual(a, b)           Verify that a == b 
+assertNotEqual(a, b)    Verify that a != b 
+assertTrue(x)                 Verify that x is True 
+assertFalse(x)                Verify that x is False 
+assertIn(item, list)        Verify that item is in list
+"""
 
-
-#
-if __name__ == "__main__":
-    unittest.main()
+# using the setUp() method in unittest
+# when the setUp() method is included in the TestCase class
+# it is run before each method starting with 'test_'
+# it is used to reduce repetition of code in each test
+# any objects created in the setUp() method are available
+# in every  test_ method
