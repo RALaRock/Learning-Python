@@ -4,6 +4,3 @@ print(alist)
 newlist = list(set(alist))
 print(newlist)
 print(type(newlist))"""
-
-
-
